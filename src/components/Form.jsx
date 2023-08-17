@@ -14,13 +14,13 @@ const Form = ({ addTask }) => {
     }
     return (
         <form
-            className=" bg-sky-500"
+            className="todo "
             onSubmit={handleFormSubmit}
         >
-            <div className="wrapper">
+            <div className="wrapper relative flex gap-[0.2em] rounded">
                 <input type="text"
                     id="text"
-                    className="input"
+                    className="input w-3/4 rounded outline outline-fuchsia-800 focus:outline-2"
                     value={task}
                     onInput={(e) => setTask(e.target.value)}
                     required
@@ -28,9 +28,8 @@ const Form = ({ addTask }) => {
                     maxLength={60}
                     placeholder="Enter task"
                 />
-                <label htmlFor="task" className="label">Enter Task</label>
                 <button
-                    className="btn"
+                    className="btn w-[30px] rounded bg-fuchsia-800 text-white"
                     aria-label="Add Task"
                     type="submit"
                 >

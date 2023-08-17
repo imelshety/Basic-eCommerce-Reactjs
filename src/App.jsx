@@ -1,17 +1,25 @@
 import Form from './components/Form';
+import Theme from './components/Theme';
+import NavBar from './components/NavBar';
+function App({ drakMode }) {
 
-function App() {
   const addTask = (task) => {
     console.log(task)
   }
 
   return (
-    <div className="container bg-gray-700">
-      <header>
-        <h1>My Task List</h1>
-      </header>
-      <Form addTask={addTask} />
-    </div>
+    <>
+      <NavBar />
+
+      <div
+        className={`w-full h-screen bg-sky-300  flex items-center justify-center flex-col ${drakMode && 'dark'
+          }`}
+      >
+        <Theme drakMode={drakMode} />
+        <Form addTask={addTask} />
+      </div>
+    </>
+
   )
 }
 
