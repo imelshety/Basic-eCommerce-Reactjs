@@ -1,10 +1,12 @@
 import Form from './components/Form';
 import Theme from './components/Theme';
 import NavBar from './components/NavBar';
+import TaskList from './components/TaskList';
+import { useState } from 'react';
 function App({ drakMode }) {
-
+  const [tasks, setTasks] = useState([])
   const addTask = (task) => {
-    console.log(task)
+    setTasks(prevState => [...prevState, task])
   }
 
   return (
@@ -12,11 +14,12 @@ function App({ drakMode }) {
       <NavBar />
 
       <div
-        className={`w-full h-screen bg-sky-300  flex items-center justify-center flex-col ${drakMode && 'dark'
+        className={`w-full flex items-center justify-center flex-col ${drakMode && 'dark'
           }`}
       >
         <Theme drakMode={drakMode} />
         <Form addTask={addTask} />
+        {tasks && <TaskList tasks={tasks} />}
       </div>
     </>
 
