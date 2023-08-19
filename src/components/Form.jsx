@@ -14,22 +14,22 @@ const Form = ({ addTask }) => {
     }
     return (
         <form
-            className="todo "
+            className='container mt-8'
             onSubmit={handleFormSubmit}
         >
-            <div className="wrapper relative flex gap-[0.2em] rounded">
+            <div className="relative flex justify-center gap-[0.2em] rounded">
                 <input type="text"
                     id="text"
-                    className="input w-3/4 rounded outline outline-fuchsia-800 focus:outline-2"
+                    className="input w-3/4 lg:w-1/3 rounded outline focus:outline-2 outline-fuchsia-800"
                     value={task}
                     onInput={(e) => setTask(e.target.value)}
                     required
                     autoFocus
-                    maxLength={60}
+                    maxLength={40}
                     placeholder="Enter task"
                 />
                 <button
-                    className="btn w-[30px] rounded bg-fuchsia-800 text-white"
+                    className="w-[30px]  bg-fuchsia-800 text-white rounded ml-3 shadow shadow-gray-400"
                     aria-label="Add Task"
                     type="submit"
                 >
