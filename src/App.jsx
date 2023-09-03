@@ -1,30 +1,27 @@
-import Form from './components/Form';
-// import Theme from './components/Theme';
-import NavBar from './components/NavBar';
-import TaskList from './components/TaskList';
-import { useState } from 'react';
-function App() {
-  const [tasks, setTasks] = useState([])
-  const addTask = (task) => {
-    setTasks(prevState => [...prevState, task])
-  }
-  const removeTask = (id) => {
-    setTasks(prevState => prevState.filter(task => task.id !== id))
-  }
+import Header from "./components/Header/Header";
+import Card from "./components/Card/Card";
+import Carsoul from "./components/Header/Carsoul";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import About from "./components/About";
+import DetailsItem from "./components/Card/DetailsItem";
+const App = () => {
   return (
-    <>
-      <NavBar />
+    <Router>
+      <Header />
+      <Routes>
+        <Route path="/"
+          element={
+            <>
+              <Carsoul />
+              <Card />
+            </>
+          }
+        />
+        <Route path="/about" element={<About />} />
+        <Route path="/item-details/:id" element={<DetailsItem />} />
 
-      {/* <div
-        className={`w-full flex items-center justify-center flex-col ${drakMode && 'dark'
-          }`}
-      > */}
-      {/* <Theme drakMode={drakMode} /> */}
-      <Form addTask={addTask} />
-      {tasks && <TaskList tasks={tasks} removeTask={removeTask} />}
-      {/* </div> */}
-    </>
-
+      </Routes>
+    </Router>
   )
 }
 
